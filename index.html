@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teddy Hug 🧸</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Comic Sans MS', cursive;
+        background: linear-gradient(to right, #ffd1dc, #ffe6f0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        max-width: 400px;
+    }
+
+    h2 {
+        color: #ff4d88;
+    }
+
+    button {
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .yes {
+        background-color: #ff80ab;
+        color: white;
+    }
+
+    .yes:hover {
+        background-color: #ff4d88;
+    }
+
+    .no {
+        background-color: #ccc;
+    }
+
+    img {
+        width: 150px;
+        margin-top: 20px;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="container" id="mainBox">
+    <img src="https://i.imgur.com/3ZQ3ZQv.png" alt="Teddy">
+    <h2>Can I hug you? 🧸💗</h2>
+    <div id="buttons">
+        <button class="yes" onclick="sayYes()">Yes</button>
+        <button class="no" onclick="sayNo()">No</button>
+    </div>
+</div>
+
+<script>
+function sayNo() {
+    // Replace No button with Yes button
+    document.getElementById("buttons").innerHTML =
+        '<button class="yes" onclick="sayYes()">Yes 💗</button>';
+}
+
+function sayYes() {
+    document.getElementById("mainBox").innerHTML = `
+        <h2>Sending you a big virtual hug 🤗💖</h2>
+        <p>I am always here for you. You can count on me 🧸✨</p>
+        <img src="https://i.imgur.com/Q9qFt3m.png" alt="Teddy Hug">
+    `;
+}
+</script>
+
+</body>
+</html>
