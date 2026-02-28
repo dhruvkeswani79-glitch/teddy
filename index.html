@@ -59,11 +59,36 @@
       margin-top: 20px;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      animation: pop 1s ease;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); }
+      100% { transform: scale(1); }
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      color: #ff4d94;
+      font-size: 24px;
+      animation: floatUp 4s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-600px);
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -95,6 +120,24 @@
     function showHug() {
       document.querySelector(".buttons").style.display = "none";
       document.getElementById("hugSection").style.display = "block";
+      createHearts();
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = window.innerHeight + "px";
+        heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }
     }
   </script>
 
