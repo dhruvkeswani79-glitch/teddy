@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Teddy Hug 🧸</title>
+<style>
+body {
+    margin: 0;
+    font-family: Comic Sans MS, cursive;
+    background: linear-gradient(to right, #ffd1dc, #ffe6f0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 400px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.yes {
+    background-color: #ff80ab;
+    color: white;
+}
+
+.no {
+    background-color: #ccc;
+}
+
+.hidden {
+    display: none;
+}
+
+video {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="mainBox">
+    <h2>Can I hug you? 🧸💗</h2>
+    <button class="yes" onclick="sayYes()">Yes</button>
+    <button class="no" onclick="sayNo()">No</button>
+</div>
+
+<script>
+function sayNo() {
+    document.querySelector(".no").innerHTML = "Yes 💗";
+    document.querySelector(".no").className = "yes";
+    document.querySelector(".no").onclick = sayYes;
+}
+
+function sayYes() {
+    document.getElementById("mainBox").innerHTML = `
+        <h2>Sending you a big virtual hug 🤗💖</h2>
+        <p>I am always here for you. You can count on me 🧸✨</p>
+        <video controls autoplay>
+            <source src="hug.mp4" type="video/mp4">
+        </video>
+    `;
+}
+</script>
+
+</body>
+</html>
