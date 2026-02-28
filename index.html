@@ -104,6 +104,15 @@
   <audio id="bgMusic" src="music.mp3"></audio>
 
   <script>
+    const messages = [
+      "Sending you a warm virtual hug 💞 I was enchanted to meet you ✨🧸",
+      "You have the sweetest smile 💖✨",
+      "Every moment with you feels special 🧸💗",
+      "You make my world a little brighter 🌸💞",
+      "I’m really glad our paths crossed ✨💕",
+      "You deserve all the happiness in the world 💗"
+    ];
+
     function moveButton() {
       var button = document.getElementById("noBtn");
       var x = Math.random() * (window.innerWidth - 100);
@@ -138,9 +147,10 @@
     }
 
     function typeMessage() {
-      const text = "Sending you a warm virtual hug 💞 I was enchanted to meet you ✨🧸";
+      const text = messages[Math.floor(Math.random() * messages.length)];
       let i = 0;
       const speed = 50;
+      document.getElementById("typingText").innerHTML = "";
 
       function typing() {
         if (i < text.length) {
