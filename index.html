@@ -51,7 +51,6 @@
     #hugSection {
       display: none;
       margin-top: 40px;
-      animation: fadeIn 1.5s ease-in-out;
     }
 
     #hugSection img {
@@ -62,33 +61,27 @@
       animation: pop 1s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
     @keyframes pop {
       0% { transform: scale(0.5); }
       100% { transform: scale(1); }
     }
 
-    /* Floating Hearts */
     .heart {
       position: absolute;
-      color: #ff4d94;
       font-size: 24px;
       animation: floatUp 4s linear infinite;
     }
 
     @keyframes floatUp {
-      0% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-600px);
-        opacity: 0;
-      }
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-600px); opacity: 0; }
+    }
+
+    #typingText {
+      font-size: 20px;
+      color: #ff3385;
+      margin-top: 15px;
+      min-height: 30px;
     }
   </style>
 </head>
@@ -103,10 +96,12 @@
   </div>
 
   <div id="hugSection">
-    <h2>Sending you a warm virtual hug 🤗💖</h2>
-    <p>I am always here for you. You can count on me 🧸✨</p>
+    <h2>🤗💖</h2>
+    <div id="typingText"></div>
     <img src="hug.png" alt="Teddy Hug">
   </div>
+
+  <audio id="bgMusic" src="music.mp3"></audio>
 
   <script>
     function moveButton() {
@@ -120,11 +115,13 @@
     function showHug() {
       document.querySelector(".buttons").style.display = "none";
       document.getElementById("hugSection").style.display = "block";
+      document.getElementById("bgMusic").play();
       createHearts();
+      typeMessage();
     }
 
     function createHearts() {
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 25; i++) {
         let heart = document.createElement("div");
         heart.className = "heart";
         heart.innerHTML = "💗";
@@ -138,6 +135,22 @@
           heart.remove();
         }, 4000);
       }
+    }
+
+    function typeMessage() {
+      const text = "Sending you a warm virtual hug 💞 I am always here for you. You can count on me 🧸✨";
+      let i = 0;
+      const speed = 50;
+
+      function typing() {
+        if (i < text.length) {
+          document.getElementById("typingText").innerHTML += text.charAt(i);
+          i++;
+          setTimeout(typing, speed);
+        }
+      }
+
+      typing();
     }
   </script>
 
