@@ -2,21 +2,25 @@
 <html>
 <head>
   <title>Can I Hug You? 🧸</title>
+
   <style>
     body {
+      margin: 0;
+      padding: 0;
       text-align: center;
-      background-color: #ffe6f0;
-      font-family: Arial, sans-serif;
+      font-family: "Comic Sans MS", cursive;
+      background: linear-gradient(to right, #ffd6e8, #ffeef7);
       overflow: hidden;
     }
 
     h1 {
-      margin-top: 80px;
-      font-size: 30px;
+      margin-top: 100px;
+      font-size: 32px;
+      color: #ff4d94;
     }
 
     .buttons {
-      margin-top: 30px;
+      margin-top: 40px;
       position: relative;
     }
 
@@ -24,15 +28,19 @@
       padding: 12px 25px;
       font-size: 18px;
       border: none;
-      border-radius: 10px;
+      border-radius: 25px;
       cursor: pointer;
       margin: 10px;
-      transition: 0.3s;
+      transition: 0.3s ease;
     }
 
     #yesBtn {
       background-color: #ff66b2;
       color: white;
+    }
+
+    #yesBtn:hover {
+      background-color: #ff3385;
     }
 
     #noBtn {
@@ -42,7 +50,7 @@
 
     #hugSection {
       display: none;
-      margin-top: 30px;
+      margin-top: 40px;
       animation: fadeIn 1.5s ease-in-out;
     }
 
@@ -50,14 +58,16 @@
       width: 300px;
       margin-top: 20px;
       border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
+
 <body>
 
   <h1>🧸 Can I Hug You? 💞</h1>
@@ -68,8 +78,8 @@
   </div>
 
   <div id="hugSection">
-    <h2>Sending you a virtual hug 🧸💞</h2>
-    <p>I am always here for you, you can count on me 💛</p>
+    <h2>Sending you a warm virtual hug 🤗💖</h2>
+    <p>I am always here for you. You can count on me 🧸✨</p>
     <img src="hug.png" alt="Teddy Hug">
   </div>
 
